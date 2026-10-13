@@ -1,75 +1,130 @@
-# React + TypeScript + Vite
+# SkylineWeather
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive weather dashboard built with React, TypeScript, and the OpenWeather API. Search for a city to view current weather conditions, weather metrics, hourly details, and a five-day forecast.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[View SkylineWeather](https://mzwandilem.github.io/Weather-app/)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Current Weather
 
-## Expanding the ESLint configuration
+- View the current temperature and feels-like temperature.
+- View weather conditions and key metrics such as humidity, pressure, wind speed, and visibility.
+- View sunrise and sunset times.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### City Search
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Search for weather by city name.
+- Display weather information for the selected location.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Forecasts
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- View hourly weather information.
+- View a five-day forecast.
 
+### User Experience
+
+- Responsive dashboard layout for different screen sizes.
+- Loading and error states.
+- Uses the browser's location when available, with Mbabane as the fallback location.
+
+## 🛠️ Technologies
+
+- React
+- TypeScript
+- Vite
+- CSS
+- OpenWeather API
+
+## 🧠 Concepts Practiced
+
+- React components and props
+- State management and custom hooks
+- `useEffect` for API requests and side effects
+- TypeScript interfaces and typed component props
+- Fetching and handling API data
+- Loading and error handling
+- Search input and event handling
+- Environment variables with Vite
+- Responsive CSS Grid and Flexbox layouts
+- Building and deploying a Vite application
+
+## 📁 Project Structure
+
+```text
+Weather-app/
+├── public/
+├── src/
+│   ├── components/
+│   ├── css/
+│   │   └── App.css
+│   ├── hooks/
+│   ├── services/
+│   ├── App.tsx
+│   └── main.tsx
+├── .env                 # Local API key; not committed
+├── .gitignore
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Adjust the tree to match the actual folders in your repository.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🎯 Purpose
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+SkylineWeather was built to practise front-end development with React and TypeScript while working with a real weather API. The project focuses on reusable components, typed data, API integration, responsive styling, and a clear dashboard interface.
 
+## ⚙️ Run Locally
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/MzwandileM/Weather-app.git
+   ```
+
+2. Move into the project folder:
+
+   ```bash
+   cd Weather-app
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Create a `.env` file in the project root and add your OpenWeather API key:
+
+   ```env
+   VITE_WEATHER_API_KEY=your_api_key_here
+   ```
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+## 🚀 Build
+
+Create the production build:
+
+```bash
+npm run build
 ```
+
+Vite generates the production files in the `dist/` folder. To preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## 🔐 Security Note
+
+Keep your `.env` file out of Git. Variables prefixed with `VITE_` are included in the client-side bundle and are visible to users. Do not store secrets that must remain private in them.
